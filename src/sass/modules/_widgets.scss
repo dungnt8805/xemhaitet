@@ -1,0 +1,102 @@
+.widget {
+  margin: 0 0 30px 0;
+  background-color: $white;
+
+  p, input {
+    font-family: "Open Sans", Helvetica, Arial, Lucida, sans-serif;
+    text-transform: none;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+  }
+  .widget_form_input {
+
+    width: 100%;
+    margin-bottom: 10px;
+    padding-right: 0;
+    float: left;
+    input {
+      font-weight: 700;
+      line-height: 1em;
+      padding: 10px;
+      width: 100%;
+      border-color: transparent;
+      &:focus {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .mc_widget_form_header {
+    background-color: rgba(128, 184, 16, 0.64);
+    padding: 15px 5px;
+    overflow: hidden;
+    position: relative;
+    .mc_widget_form_text {
+      max-width: 100%;
+      padding: 15px;
+      display: block;
+      clear: both;
+      .mc_widget_caption {
+        text-align: center;
+        font-size: 30px;
+        color: $white;
+      }
+      .mc_widget_lead {
+        text-align: center;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6em;
+        margin-top: 0.5em;
+      }
+    }
+  }
+  .mc_widget_form_content {
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 10px;
+      width: 100%;
+      left: 0;
+      top: -10px;
+      background: linear-gradient(45deg, transparent 33.33%, #e5e0da 33.333%, #e5e0da 66.66%, transparent 66.66%), linear-gradient(-45deg, transparent 33.33%, #e5e0da 33.33%, #e5e0da 66.66%, transparent 66.66%);
+      background-size: 20px 40px;
+    }
+    background-color: #e5e0da;
+    padding: 30px 20px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    .mc_widget_subscription {
+      background-color: #445a6d;
+      width: 100%;
+      padding: 10px;
+      &.btn {
+        border-radius: 0;
+      }
+      &:hover {
+        background-color: darken(#445a6d, 3%);
+      }
+      .mc_widget_button_text {
+        line-height: 1em;
+        text-transform: none;
+        color: $white;
+        letter-spacing: 1px;
+        background-color: transparent;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.content {
+  .home-middle, .home-top {
+
+  }
+}
+

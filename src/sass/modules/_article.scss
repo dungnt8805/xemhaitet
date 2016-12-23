@@ -1,0 +1,155 @@
+article {
+  &.hentry {
+    position: relative;
+    padding: 0 0 25px;
+  }
+  .share-container {
+    //border-bottom: 1px solid gainsboro;
+    //border-top: 1px solid gainsboro;
+    padding: 10px !important;
+    &:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .label {
+      text-align: left;
+      float: left;
+      display: block;
+      width: 150px;
+      font-size: 16px;
+      padding-top: 7px;
+      color: $text-color;
+      font-weight: 500;
+    }
+  }
+  .entry-content {
+    margin-top: 20px;
+    word-wrap: break-word;
+  }
+  .byline {
+    .entry-comment, .entry-date, .entry-view {
+      padding-right: 15px;
+    }
+  }
+}
+
+#reviews {
+  padding-top: 20px;
+  .grid {
+    margin-left: -10px;
+    margin-right: -10px;
+    article {
+      &.block {
+        padding-left: 10px;
+        padding-right: 10px;
+        .entry-title {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+.more-from-category {
+  clear: both;
+  text-align: center;
+  a {
+    background-color: $red;
+    font-size: 14px;
+    line-height: 22px;
+    color: $white;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    text-decoration: none;
+    min-width: 90px;
+    background-position: center center;
+    transition: all 0.2s ease-in-out 0s;
+    margin-bottom: 20px;
+    &:hover {
+      background-color: darken($red, 25%);
+    }
+  }
+}
+
+.section-title {
+  background: none repeat scroll 0% 0% $light-grey;
+  border-top: 2px solid $red;
+  border-bottom: none;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  color: $red;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  &:hover {
+    color: darken($red, 25%);
+  }
+}
+
+.hentry {
+  .entry-thumbnail {
+    margin: 0 0px 5px 0;
+    width: 100%;
+    float: left;
+    height: 120px;
+  }
+  .entry-title {
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    height: 36px;
+    text-overflow: ellipsis;
+    a {
+      color: $black;
+      font-weight: bold;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  .entry-meta {
+    font-size: 12px;
+  }
+  .entry-summary {
+    margin-top: 5px;
+  }
+}
+
+#vouchers, #reviews {
+  padding-left: 0;
+  padding-right: 0;
+
+  .more-from-category {
+    text-align: right;
+  }
+}
+
+#vouchers {
+  .grid {
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+      border-bottom: 1px solid gainsboro;
+      .post-thumbnail {
+        padding-left: 0;
+        clear: both;
+      }
+      .entry-title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.3;
+        margin-bottom: 0;
+        height: auto;
+      }
+      .entry-summary {
+        margin-top: 10px;
+      }
+    }
+  }
+  .more-from-category {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,248 @@
+.container {
+  //@media (min-width: $screen-lg-min) {
+  //  width: 980px;
+  //}
+}
+
+#logo {
+  float: left;
+  margin: 0px 30px 0 0;
+}
+
+.secondary-bar {
+  background-color: $menu-bg-color;
+  border-radius: 0;
+  border: 0;
+  .sf-menu {
+    li.sf-menu {
+      a {
+        color: $white;
+        &:hover {
+          background-color: darken($menu-bg-color, 5%);
+        }
+      }
+      &:hover {
+        .dropdown-menu {
+          display: block !important;
+        }
+      }
+      .dropdown-menu {
+        a {
+          color: #555555;
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner-header {
+  float: right;
+  margin: 25px 0;
+}
+
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 50px;
+  #masthead {
+    padding-top: 70px;
+  }
+}
+
+#wrap_content {
+  .page {
+    padding-top: 10px;
+    float: none;
+    clear: both;
+    min-height: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+  }
+
+  article {
+    display: block;
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    header {
+      margin-bottom: 10px;
+    }
+  }
+
+  #content_box {
+    float: left;
+    width: 100%;
+    header {
+      padding-bottom: 15px;
+    }
+  }
+
+  #content_bg {
+    clear: both;
+    margin-bottom: 20px;
+
+  }
+
+  .post {
+    &.excerpt {
+      clear: both;
+      float: left;
+      border-top: 1px solid gainsboro;
+      border-left: 1px solid #dcdcdc;
+      border-right: 1px solid #dcdcdc;
+      background-color: $white;
+      padding: 3% 2%;
+      width: 100%;
+      position: relative;
+    }
+  }
+
+}
+
+.title {
+  margin-bottom: 5px;
+  line-height: 24px;
+  font-size: 24px;
+  a {
+    color: #555;
+    font-weight: bold;
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+.tablePost {
+  border-top: 1px solid #e2e2e2;
+  margin-top: 10px;
+  width: 100%;
+  clear: both;
+  color: #999;
+  padding-top: 5px;
+  text-transform: capitalize;
+}
+
+.metadate {
+  background-color: #9ED461;
+  position: absolute;
+  left: -57px;
+  font-family: 'Gudea', sans-serif;
+  padding: 10px;
+  color: $white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 100;
+  z-index: 100;
+  width: 65px;
+}
+
+.featured-thumbnail {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 5px;
+  float: left;
+  img {
+    display: block;
+    margin: 0 auto 10px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.post-content {
+  overflow: hidden;
+  color: #545658;
+  float: left;
+  max-width: 100%;
+}
+
+.readMore {
+  float: left;
+  clear: both;
+  color: $white;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+  a {
+    background-color: #9ED461;
+    font-size: 16px;
+    line-height: 42px;
+    text-align: center;
+    font-family: 'Gudea', sans-serif;
+    padding: 10px 17px;
+    transition: all 0.2s linear
+  }
+}
+
+.single_post {
+  border: 1px solid gainsboro;
+  background: $white;
+  .singleCon {
+    padding: 19px 3% !important;
+  }
+}
+
+.home-top {
+  .featured-content {
+    a {
+      position: relative;
+    }
+    img {
+      width: 300px;
+      margin-bottom: 0px;
+    }
+    .entry {
+      float: left;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.featured-content {
+  .entry {
+    margin-bottom: 20px;
+    border: none;
+    max-width: 100%;
+  }
+  .entry-title {
+    border: none;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+a.alignleft, img.alignleft {
+  margin: 0 20px 20px 0;
+}
+
+a {
+  .alignleft, .alignright {
+    max-width: 100%;
+  }
+}
+
+.alignleft {
+  float: left;
+  text-align: left;
+}
+
+.rrssb-buttons {
+  width: calc(100% - 150px) !important;
+  float: right;
+  li {
+    width: 33%;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "couponmuasam",
+  "description": "",
+  "main": "",
+  "authors": [
+    "dungnt <dungnt8805@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/spiritwild/couponms",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.7",
+    "font-awesome-sass": "~4.6.2",
+    "roboto-fontface": "~0.5.0",
+    "rrssb": "^1.13.1"
+  }
+}

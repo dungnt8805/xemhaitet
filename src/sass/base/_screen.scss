@@ -1,0 +1,4 @@
+.hidden-small {
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+}
