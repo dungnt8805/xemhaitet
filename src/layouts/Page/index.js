@@ -40,8 +40,8 @@ const Page = ({
     <div>
       <article className="hentry" id={ __url }>
         <Helmet title={ metaTitle } meta={ meta } />
-        <div id="breadcrumbs" className="breadcrumb">
-
+        <div id="video-player">
+          
         </div>
         <h1 className="entry-title">
           { head.title }
@@ -106,7 +106,7 @@ const Page = ({
       </article>
       <div className="comment-area" id="comments">
         <div id="disqus_thread"></div>
-        <Helmet script={ [ { src: "//couponmuasam.disqus.com/embed.js", "data-timestamp": +new Date() } ] } />
+        <Helmet script={ [ { src: "//xemhaitet.disqus.com/embed.js", "data-timestamp": +new Date() } ] } />
       </div>
     </div>
   )

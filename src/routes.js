@@ -30,6 +30,5 @@ export default (
   <Route component={ AppContainer }>
     <Route path="tag/:tag" component={ Tag } />
     <Route path="*" component={ PageContainer } />
-    <Route path="/huong-dan" component={ Tag }/>
   </Route>
 )

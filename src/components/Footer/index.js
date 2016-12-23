@@ -8,10 +8,10 @@ const Footer = () => (
         <div className="left">
           { "\u00a9\u00a0" + new Date().getFullYear() + "\u00a0" }
           <Link to="/">
-            <strong>{ "Couponmuasam" }</strong>
+            <strong>{ "Xemhaitet" }</strong>
           </Link>
           { ". Powered by " }
-          <Link to="/">{ "DungNT" }</Link>
+          <Link to="/">{ "xemhaitet.com" }</Link>
         </div>
       </div>
     </div>

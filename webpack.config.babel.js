@@ -93,7 +93,7 @@ export default (config = {}) => {
                 : "[path][name]--[local]--[hash:base64:5]"
               }`,
               "postcss-loader",
-            ].join("!"),
+            ].join("!")
           ),
           // webpack 2
           /*
@@ -128,7 +128,7 @@ export default (config = {}) => {
           include: path.resolve(__dirname, "src"),
           loader: ExtractTextPlugin.extract(
             "style-loader",
-            [ "css-loader", "sass-loader" ].join("!"),
+            [ "css-loader", "sass-loader" ].join("!")
           ),
           // test: /\.global\.css$/,
           // include: path.resolve(__dirname, "src"),

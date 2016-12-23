@@ -4,8 +4,6 @@ article {
     padding: 0 0 25px;
   }
   .share-container {
-    //border-bottom: 1px solid gainsboro;
-    //border-top: 1px solid gainsboro;
     padding: 10px !important;
     &:after {
       content: "";
@@ -34,8 +32,7 @@ article {
   }
 }
 
-#reviews {
-  padding-top: 20px;
+#videos {
   .grid {
     margin-left: -10px;
     margin-right: -10px;
@@ -43,9 +40,6 @@ article {
       &.block {
         padding-left: 10px;
         padding-right: 10px;
-        .entry-title {
-          float: left;
-        }
       }
     }
   }
@@ -93,7 +87,6 @@ article {
   .entry-thumbnail {
     margin: 0 0px 5px 0;
     width: 100%;
-    float: left;
     height: 120px;
   }
   .entry-title {
@@ -101,9 +94,10 @@ article {
     line-height: 1.3;
     margin-bottom: 10px;
     height: 36px;
-    text-overflow: ellipsis;
+    overflow: hidden;
     a {
       color: $black;
+      text-overflow: ellipsis;
       font-weight: bold;
       &:hover {
         color: $red;
@@ -118,7 +112,7 @@ article {
   }
 }
 
-#vouchers, #reviews {
+#vouchers, #videos {
   padding-left: 0;
   padding-right: 0;
 
