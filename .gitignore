@@ -1,0 +1,8 @@
+# node / npm
+node_modules
+vendor
+.idea
+*.log
+
+# phenomic build
+dist
