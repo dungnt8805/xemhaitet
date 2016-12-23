@@ -39,9 +39,9 @@ const Page = ({
   return (
     <div>
       <article className="hentry" id={ __url }>
-        <Helmet title={ metaTitle } meta={ meta } />
-        <div id="video-player">
-          
+        <Helmet title={ metaTitle } meta={ meta }/>
+        <div id="video-player" className="col-xs-12">
+
         </div>
         <h1 className="entry-title">
           { head.title }
@@ -106,7 +106,15 @@ const Page = ({
       </article>
       <div className="comment-area" id="comments">
         <div id="disqus_thread"></div>
-        <Helmet script={ [ { src: "//xemhaitet.disqus.com/embed.js", "data-timestamp": +new Date() } ] } />
+        <Helmet
+          script={ [
+          { src: "//xemhaitet.disqus.com/embed.js", "data-timestamp": +new Date() },
+          { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
+            {
+              scriptText: "var playerInstance = jwplayer('video-player'); playerInstance.setup(file://www.youtube.com/watch?v=8CjdLYBDUqw)",
+            },
+          ] }
+        />
       </div>
     </div>
   )
