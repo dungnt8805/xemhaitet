@@ -3,6 +3,7 @@ import Helmet from "react-helmet"
 import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
 import ReactPlayer from "react-player"
+import FBComments from "../../components/Facebook/FBComments"
 
 const Page = ({
   __filename,
@@ -100,6 +101,7 @@ const Page = ({
           <BodyContainer>{ body }</BodyContainer>
         </div>
         <div className="comment">
+          <FBComments link={ joinUri(process.env.PHENOMIC_USER_URL, __url) }/>
           <div id="disqus_thread"></div>
           <script>
 
@@ -107,7 +109,6 @@ const Page = ({
         </div>
       </article>
       <div className="comment-area" id="comments">
-        <div className="fb-comments" data-href={ joinUri(process.env.PHENOMIC_USER_URL, __url) } data-width="100%" data-numposts="5"></div>
         <div id="disqus_thread"></div>
       </div>
     </div>

@@ -8,7 +8,6 @@ import Header from "./components/Header"
 import Content from "./components/Content"
 import Footer from "./components/Footer"
 import Ga from "./components/Ga"
-import Facebook from "./components/Facebook"
 
 const AppContainer = (props) => {
   return (
@@ -19,7 +18,6 @@ const AppContainer = (props) => {
         <Content>
           { props.children }
         </Content>
-        <Facebook/>
       </Container>
       <Footer />
     </Ga>

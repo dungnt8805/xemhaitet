@@ -17,6 +17,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { src: "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", type: "text/javascript" },
         { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", type: "text/javascript" },
         { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
+        { src: "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8" },
       ] }
     />
 

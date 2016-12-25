@@ -90,7 +90,10 @@
       "no-unused-vars": 0,
       "react/jsx-indent-props": 0,
       "react/jsx-space-before-closing": 0,
-      "react/jsx-no-literals": 0
+      "react/jsx-no-literals": 0,
+      "no-undef": 0,
+      "space-before-function-paren": 0,
+      "semi": 0
     }
   },
   "stylelint": {
