@@ -67,7 +67,6 @@ const Header = (props, { metadata: { pkg }, collection }) => {
           </div>
         </div>
       </div>
-
     </header>
   )
 }

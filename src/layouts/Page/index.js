@@ -2,6 +2,8 @@ import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
+import ReactPlayer from "react-player"
+
 const Page = ({
   __filename,
   __url,
@@ -41,7 +43,7 @@ const Page = ({
       <article className="hentry" id={ __url }>
         <Helmet title={ metaTitle } meta={ meta }/>
         <div id="video-player" className="col-xs-12">
-
+          <ReactPlayer url={ "https://www.youtube.com/watch?v=" + head.youtubeId } playing width="100%"/>
         </div>
         <h1 className="entry-title">
           { head.title }
@@ -105,16 +107,8 @@ const Page = ({
         </div>
       </article>
       <div className="comment-area" id="comments">
+        <div className="fb-comments" data-href={ joinUri(process.env.PHENOMIC_USER_URL, __url) } data-width="100%" data-numposts="5"></div>
         <div id="disqus_thread"></div>
-        <Helmet
-          script={ [
-          { src: "//xemhaitet.disqus.com/embed.js", "data-timestamp": +new Date() },
-          { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
-            {
-              scriptText: "var playerInstance = jwplayer('video-player'); playerInstance.setup(file://www.youtube.com/watch?v=8CjdLYBDUqw)",
-            },
-          ] }
-        />
       </div>
     </div>
   )

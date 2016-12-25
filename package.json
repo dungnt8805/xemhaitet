@@ -139,9 +139,11 @@
   },
   "dependencies": {
     "gh-pages": "^0.11.0",
+    "jwplayer": "^1.0.3",
     "node-sass": "^3.10.1",
     "react-google-analytics": "^0.2.0",
     "react-icons": "^2.2.1",
+    "react-player": "^0.13.0",
     "sass-loader": "^4.0.2",
     "url-loader": "^0.5.7",
     "whatwg-fetch": "^0.11.1",

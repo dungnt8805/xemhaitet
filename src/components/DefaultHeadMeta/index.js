@@ -16,6 +16,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js", type: "text/javascript" },
         { src: "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", type: "text/javascript" },
         { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", type: "text/javascript" },
+        { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
       ] }
     />
 
