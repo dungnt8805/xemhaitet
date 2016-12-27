@@ -1,10 +1,9 @@
 import React, { PropTypes } from "react"
 import enhanceCollection from "phenomic/lib/enhance-collection"
 import BaseLayout from "../BaseLayout"
-import Link from "phenomic/lib/Link"
 import Videos from "../../components/Videos"
 
-const numberOfLatestPosts = 6
+const numberOfLatestPosts = 40
 
 const Homepage = (props, { collection }) => {
   const videos = enhanceCollection(collection, {

@@ -29,8 +29,8 @@ const Header = (props, { metadata: { pkg }, collection }) => {
                 <ul className="dropdown-menu">
                   {
                     categories.map((category) => (
-                      <li role="presentation" key={ category.__url }>
-                        <Link to={ category.__url }>{ category.title }</Link>
+                      <li role="presentation" key={ category.slug }>
+                        <Link to={ `/category/${category.slug}` }>{ category.title }</Link>
                       </li>
                     ))
                   }

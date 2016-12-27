@@ -8,9 +8,9 @@ import Page from "./layouts/Page"
 import PageError from "./layouts/PageError"
 import PageLoading from "./layouts/PageLoading"
 import Homepage from "./layouts/Homepage"
-import Post from "./layouts/Post"
 import Tag from "./layouts/Tag"
 import Actors from "./layouts/Actors"
+import Category from "./layouts/Category"
 
 const PageContainer = (props) => (
   <PhenomicPageContainer
@@ -27,7 +27,8 @@ const PageContainer = (props) => (
 
 export default (
   <Route component={ AppContainer }>
-    <Route path="actors(/:page)" component={ Actors }/>
+    <Route path="category/:slug(:/page)" component={ Category }/>
+    <Route path="actors" component={ Actors }/>
     <Route path="tag/:tag" component={ Tag }/>
     <Route path="*" component={ PageContainer }/>
   </Route>

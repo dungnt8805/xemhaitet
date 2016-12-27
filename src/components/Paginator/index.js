@@ -10,7 +10,7 @@ const Paginator = ({ current, total, uri }) => {
     <ul className="pagination">
       {
         rows.map((row) => (
-          <li>
+          <li key={ row }>
             <Link to={ "/" + uri + "page=" + row }>{ row }</Link>
           </li>
         ))
