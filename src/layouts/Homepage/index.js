@@ -7,7 +7,7 @@ const numberOfLatestPosts = 40
 
 const Homepage = (props, { collection }) => {
   const videos = enhanceCollection(collection, {
-    filter: { layout: "Post" },
+    filter: { type: "Post" },
     sort: "date",
     reverse: true,
   }).slice(0, numberOfLatestPosts)

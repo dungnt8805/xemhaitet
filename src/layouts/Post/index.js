@@ -4,6 +4,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Page from "../Page"
 
 const Post = (props, { collection }) => {
+  console.log(props);
   // it's up to you to choose what to do with this layout ;)
   const pageDate = props.head.date ? new Date(props.head.date) : null
   return (
