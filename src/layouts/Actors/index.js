@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import enhanceCollection from "phenomic/lib/enhance-collection"
+import Paginator from "../../components/Paginator"
 
 const limitPerPage = 2
 
@@ -26,7 +27,7 @@ class Actors extends React.PureComponent {
         </div>
         {
           (total / limitPerPage) > 0 &&
-            <div></div>
+            <Paginator current={ page } total={ total } uri={ "actors" }/>
         }
       </div>
     )
