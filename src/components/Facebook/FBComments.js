@@ -1,9 +1,11 @@
 import React, { PropTypes } from "react"
 
-class FBComments extends React.Component {
+class FBComments extends React.PureComponent {
 
   componentDidMount() {
-    FB.XFBML.parse()
+    if (typeof (FB) !== "undefined") {
+      FB.XFBML.parse()
+    }
   }
 
   render() {

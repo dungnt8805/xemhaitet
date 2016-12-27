@@ -9,7 +9,6 @@ const Header = (props, { metadata: { pkg }, collection }) => {
     sort: "title",
     reverse: true,
   })
-  const rootCategories = categories.filter(category => (!category.parent))
   return (
     <header>
       <nav className="navbar navbar-default secondary-bar navbar-fixed-top">
@@ -22,32 +21,27 @@ const Header = (props, { metadata: { pkg }, collection }) => {
                   </span>
               </Link>
             </li>
+            <li className="dropdown primary-menu sf-menu">
+              <a href="#">
+                <span><i className="fa fa-tags"></i></span>
+                { "Thể loại" } </a>
+              { categories.length > 0 &&
+                <ul className="dropdown-menu">
+                  {
+                    categories.map((category) => (
+                      <li role="presentation" key={ category.__url }>
+                        <Link to={ category.__url }>{ category.title }</Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+              }
+            </li>
             <li className="sf-menu">
-              <Link to="/archive">
-                  <span>
-                    <i className="fa fa-list"></i> { "Bài viết" }
-                  </span>
+              <Link to="/Actors">
+                <span><i className="fa fa-users"></i></span> { "Nghệ sĩ" }
               </Link>
             </li>
-            {
-              rootCategories.map((category) => (
-                <li className="dropdown primary-menu sf-menu" key={ category.__url }>
-                  <Link key={ category.__url } to={ category.__url } className="dropdown-toggle" data-toggle="dropdown">
-                    { category.title }
-                  </Link>
-                  <ul className="dropdown-menu">
-                    {
-                      categories.map((child) => (
-                        child.parent === category.code &&
-                        <li role="presentation" key={ child.__url }>
-                          <Link to={ child.__url }>{ child.title }</Link>
-                        </li>
-                      ))
-                    }
-                  </ul>
-                </li>
-              ))
-            }
           </ul>
         </div>
       </nav>
@@ -61,8 +55,8 @@ const Header = (props, { metadata: { pkg }, collection }) => {
             </div>
           </div>
           <div className="banner-header col-md-8">
-            <Link to={ site.theme_settings.banner.link } target="_blank" >
-              <img src={ site.theme_settings.banner.image } />
+            <Link to={ site.theme_settings.banner.link } target="_blank">
+              <img src={ site.theme_settings.banner.image }/>
             </Link>
           </div>
         </div>

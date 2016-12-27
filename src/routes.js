@@ -9,8 +9,8 @@ import PageError from "./layouts/PageError"
 import PageLoading from "./layouts/PageLoading"
 import Homepage from "./layouts/Homepage"
 import Post from "./layouts/Post"
-import Archive from "./layouts/Archive"
 import Tag from "./layouts/Tag"
+import Actors from "./layouts/Actors"
 
 const PageContainer = (props) => (
   <PhenomicPageContainer
@@ -20,15 +20,15 @@ const PageContainer = (props) => (
       PageError,
       PageLoading,
       Homepage,
-      Post,
-      Archive,
+      Actors,
     } }
   />
 )
 
 export default (
   <Route component={ AppContainer }>
-    <Route path="tag/:tag" component={ Tag } />
-    <Route path="*" component={ PageContainer } />
+    <Route path="actors(/:page)" component={ Actors }/>
+    <Route path="tag/:tag" component={ Tag }/>
+    <Route path="*" component={ PageContainer }/>
   </Route>
 )
