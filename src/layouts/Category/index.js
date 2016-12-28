@@ -49,17 +49,15 @@ class Category extends React.PureComponent {
       sort: "date",
       reverse: true,
     })
-    console.log(allVideos)
     const total = allVideos.length
     const index = limitPerPage * page
     const videos = allVideos.slice(index, index + limitPerPage)
     return (
       <div>
-        <Helmet title={ metaTitle } meta={ meta }/>
         <div className="feature_box">
         </div>
         <div id="content_box">
-          <Videos videos={ videos }/>
+
         </div>
       </div>
     )

@@ -22,15 +22,12 @@ const Page = ({
     typeof head.title === "string",
     `Your page '${ __filename }' needs a title`
   )
-
+  const url = joinUri(process.env.PHENOMIC_USER_URL, __url)
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
   const meta = [
     { property: "og:type", content: "article" },
     { property: "og:title", content: metaTitle },
-    {
-      property: "og:url",
-      content: joinUri(process.env.PHENOMIC_USER_URL, __url),
-    },
+    { property: "og:url", content: url },
     { property: "og:description", content: head.description },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:title", content: metaTitle },
@@ -38,7 +35,6 @@ const Page = ({
     { name: "twitter:description", content: head.description },
     { name: "description", content: head.description },
   ]
-  const url = joinUri(process.env.PHENOMIC_USER_URL, __url);
   return (
     <div>
       <article className="hentry" id={ __url }>
@@ -56,21 +52,13 @@ const Page = ({
           </h1>
         </div>
         <FBLike link={ url } />
-
         <div className="entry-content">
           <BodyContainer>{ body }</BodyContainer>
         </div>
         <div className="comment">
           <FBComments link={ url }/>
-          <div id="disqus_thread"></div>
-          <script>
-
-          </script>
         </div>
       </article>
-      <div className="comment-area" id="comments">
-        <div id="disqus_thread"></div>
-      </div>
     </div>
   )
 }
