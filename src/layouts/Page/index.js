@@ -2,9 +2,11 @@ import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
-import ReactPlayer from "react-player"
-import FBComments from "../../components/Facebook/FBComments"
-import FBLike from "../../components/Facebook/FBLike"
+import CategoryPage from "./category"
+import VideoPage from "./video"
+import enhanceCollection from "phenomic/lib/enhance-collection"
+import { getQueryString } from "../../utils"
+import Videos from "../../components/Videos"
 
 const Page = ({
   __filename,
@@ -35,30 +37,47 @@ const Page = ({
     { name: "twitter:description", content: head.description },
     { name: "description", content: head.description },
   ]
+  let page = getQueryString(window.location.search).page;
+  page = page > 0 ? page : 1;
+  const limitPerPage = "Video" === head.type ? 15 : 30
+  const startIndex = limitPerPage * (page - 1)
+  const endIndex = startIndex + limitPerPage;
+  let filter;
+  if ("Video" === head.type) {
+    filter = { type: "Video" }
+  }
+
+  if ("Category" === head.type) {
+    filter = (post) => (
+      post.type === "Video"
+      && post.hasOwnProperty("categories")
+      && post.categories.indexOf(head.slug) > -1
+    )
+  }
+
+  if ("Actor" === head.type) {
+    filter = (post) => (
+      post.type === "Video"
+      && post.hasOwnProperty("actors")
+      && post.actors.indexOf(head.slug) > -1
+    )
+  }
+  const allVideos = enhanceCollection(collection, {
+    filter: filter, sort: "date", reverse: true,
+  })
+
+  const total = allVideos.length;
+  const relatedVideos = allVideos.slice(startIndex, endIndex)
+  const pages = total / limitPerPage
   return (
     <div>
-      <article className="hentry" id={ __url }>
-        <Helmet title={ metaTitle } meta={ meta }/>
-        <div id="video-player" className="col-xs-12">
-          <ReactPlayer url={ "https://www.youtube.com/watch?v=" + head.youtubeId } width="100%"/>
-        </div>
-        <div className="info col-xs-12">
-          <h1 className="entry-title">
-            { head.title }
-            <span className="entry-date">
-              <i className="fa fa-clock-o"></i>&nbsp;
-              { new Date(head.date).toLocaleDateString("vi-vn", { year: "numeric", month: "numeric", day: "numeric" }) }
-          </span>
-          </h1>
-        </div>
-        <FBLike link={ url } />
-        <div className="entry-content">
-          <BodyContainer>{ body }</BodyContainer>
-        </div>
-        <div className="comment">
-          <FBComments link={ url }/>
-        </div>
-      </article>
+      <Helmet title={ metaTitle } meta={ meta }/>
+      {
+        ("Video" === head.type && <VideoPage url={ url } head={ head } body={ body }/>)
+        || ("Category" === head.type && <CategoryPage head={ head } body={ body }/>)
+      }
+      <Videos videos={ relatedVideos }/>
+
     </div>
   )
 }
