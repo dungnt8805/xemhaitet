@@ -7,20 +7,28 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Link from "phenomic/lib/Link"
 
 const VideoPage = ({ url, head, body }, { collection }) => {
-  const actors = enhanceCollection(collection, {
-    filter: (post) => (
-      post.type === "Actor"
-      && head.actors.indexOf(post.slug) > -1
-    ),
-    sort: "title",
-  })
-  const categories = enhanceCollection(collection, {
-    filter: (post) => (
-      post.type === "Category"
-      && head.categories.indexOf(post.slug) > -1
-    ),
-    sort: "title",
-  })
+  let actors = []
+  let categories = []
+  if (head.actors) {
+    actors = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Actor"
+        && head.actors.indexOf(post.slug) > -1
+      ),
+      sort: "title",
+    })
+  }
+
+  if (head.categories) {
+    categories = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Category"
+        && head.categories.indexOf(post.slug) > -1
+      ),
+      sort: "title",
+    })
+  }
+
   return (
     <article className="hentry">
       <div id="video-player" className="col-xs-12">

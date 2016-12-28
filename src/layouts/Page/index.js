@@ -37,7 +37,10 @@ const Page = ({
     { name: "twitter:description", content: head.description },
     { name: "description", content: head.description },
   ]
-  let page = getQueryString(window.location.search).page;
+  let page = 1;
+  if ("undefined" !== typeof window) {
+    page = getQueryString(window.location.search).page
+  }
   page = page > 0 ? page : 1;
   const limitPerPage = "Video" === head.type ? 15 : 30
   const startIndex = limitPerPage * (page - 1)
