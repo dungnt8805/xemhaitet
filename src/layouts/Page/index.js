@@ -26,8 +26,12 @@ const Page = ({
   )
   const url = joinUri(process.env.PHENOMIC_USER_URL, __url)
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
+  let metaImage = "";
+  if (head.type === "Video") {
+    metaImage = `https://img.youtube.com/vi/${head.youtubeId}/mqdefault.jpg`
+  }
   const meta = [
-    { property: "og:type", content: "article" },
+    { property: "og:type", content: "video" },
     { property: "og:title", content: metaTitle },
     { property: "og:url", content: url },
     { property: "og:description", content: head.description },
@@ -36,6 +40,7 @@ const Page = ({
     { name: "twitter:creator", content: `@${ pkg.twitter }` },
     { name: "twitter:description", content: head.description },
     { name: "description", content: head.description },
+    { property: "og:image", content: metaImage },
   ]
   let page = 1;
   if ("undefined" !== typeof window) {
