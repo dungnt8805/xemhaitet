@@ -25,13 +25,13 @@ const Page = ({
     `Your page '${ __filename }' needs a title`
   )
   const url = joinUri(process.env.PHENOMIC_USER_URL, __url)
-  const metaTitle = head.metaTitle ? head.metaTitle : head.title
+  const metaTitle = `${head.metaTitle ? head.metaTitle : head.title} :: ${pkg.name}`
   let metaImage = "";
   if (head.type === "Video") {
-    metaImage = `https://img.youtube.com/vi/${head.youtubeId}/mqdefault.jpg`
+    metaImage = `http://img.youtube.com/vi/${head.youtubeId}/hqdefault.jpg`
   }
   const meta = [
-    { property: "og:type", content: "video" },
+    { property: "og:type", content: "video.movie" },
     { property: "og:title", content: metaTitle },
     { property: "og:url", content: url },
     { property: "og:description", content: head.description },

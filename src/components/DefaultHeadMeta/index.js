@@ -10,6 +10,8 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
           process.env.PHENOMIC_NAME } ${ process.env.PHENOMIC_VERSION }`,
         },
         { property: "og:site_name", content: pkg.name },
+        { property: "fb:app_id", content: "1625144991086588" },
+        { property: "fb:admins", content: "730276762" },
         { name: "twitter:site", content: `@${ pkg.twitter }` },
       ] }
       script={ [
