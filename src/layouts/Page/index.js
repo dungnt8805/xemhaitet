@@ -30,7 +30,7 @@ const Page = ({
   const metaTitle = `${head.metaTitle ? head.metaTitle : head.title} :: ${pkg.name}`
   let metaImage = "";
   if (head.type === "Video") {
-    metaImage = `http://img.youtube.com/vi/${head.youtubeId}/hqdefault.jpg`
+    metaImage = `https://img.youtube.com/vi/${head.youtubeId}/hqdefault.jpg`
   }
   if (head.type === "Category") {
     metaImage = head.thumbnail
@@ -106,7 +106,7 @@ const Page = ({
   const total = allVideos.length
 
   const relatedVideos = allVideos.slice(startIndex, endIndex)
-  const pages = total / limitPerPage
+  const pages = Math.ceil(total / limitPerPage)
   return (
     <div>
       <Helmet title={ metaTitle } meta={ meta }/>
