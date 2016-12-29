@@ -13,6 +13,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { property: "fb:app_id", content: "1625144991086588" },
         { property: "fb:admins", content: "730276762" },
         { name: "twitter:site", content: `@${ pkg.twitter }` },
+        { name: "ROBOTS", content: "noindex"}
       ] }
       script={ [
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js", type: "text/javascript" },
