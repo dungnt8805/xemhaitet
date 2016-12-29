@@ -3,7 +3,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import BaseLayout from "../BaseLayout"
 import Videos from "../../components/Videos"
 
-const numberOfLatestPosts = 40
+const numberOfLatestPosts = 42
 
 const Homepage = (props, { collection }) => {
   const videos = enhanceCollection(collection, {
