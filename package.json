@@ -15,7 +15,7 @@
     "predeploy": "npm run build",
     "deploy": "./scripts/deploy.sh"
   },
-  "googleAnalyticsUA": "UA-76984179-1",
+  "googleAnalyticsUA": "UA-89442923-1",
   "phenomic": {
     "assets": "images",
     "offline": false,
