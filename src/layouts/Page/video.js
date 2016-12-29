@@ -47,7 +47,7 @@ const VideoPage = ({ url, head, body }, { collection }) => {
           {
             categories.map((cate) => (
               <span className="item" key={ cate.__url }>
-                <Link to={ cate.__url } title={ cate.titl }>{ cate.title }</Link>
+                <Link to={ cate.__url } title={ cate.title }>{ cate.title }</Link>
               </span>
             ))
           }

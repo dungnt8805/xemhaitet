@@ -1,7 +1,7 @@
 ---
 title: ƠN GIỜI CẬU ĐÂY RỒI! - 2015 - TẬP 10 - FULL HD
 youtubeId: uSIjJIir-7w
-categories: [chuong-trinh-truyen-hinh, on-gioi-cau-day-roi, on-gioi-cau-day-roi-2014]
+categories: [chuong-trinh-truyen-hinh, on-gioi-cau-day-roi, on-gioi-cau-day-roi-2015]
 actors: [hoai-linh, tran-thanh, truong-giang, chi-tai, viet-huong, xuan-bac, tu-long]
 date: 2016-03-28
 type: Video

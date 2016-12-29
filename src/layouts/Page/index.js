@@ -32,6 +32,9 @@ const Page = ({
   if (head.type === "Video") {
     metaImage = `http://img.youtube.com/vi/${head.youtubeId}/hqdefault.jpg`
   }
+  if (head.type === "Category") {
+    metaImage = head.thumbnail
+  }
   const meta = [
     { property: "og:type", content: "video.movie" },
     { property: "og:title", content: metaTitle },
@@ -72,7 +75,6 @@ const Page = ({
     filter: filter || { type: "Video" }, sort: "date", reverse: true,
   })
 
-  console.log(aVideos)
   let allVideos = []
 
   if ("Video" === head.type) {
@@ -105,7 +107,6 @@ const Page = ({
 
   const relatedVideos = allVideos.slice(startIndex, endIndex)
   const pages = total / limitPerPage
-  console.log(pages);
   return (
     <div>
       <Helmet title={ metaTitle } meta={ meta }/>
