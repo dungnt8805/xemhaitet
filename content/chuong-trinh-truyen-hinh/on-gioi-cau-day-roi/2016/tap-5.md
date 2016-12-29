@@ -6,6 +6,7 @@ actors: [hoai-linh, tran-thanh, truong-giang, xuan-bac, tu-long, hong-dao]
 date: 2016-03-28
 type: Video
 layout: Post
+route: /chuong-trinh-truyen-hinh/on-gioi-cau-day-roi-2016-tap-5
 ---
 ƠN GIỜI, CẬU ĐÂY RỒI MÙA 3 | TẬP 5 FULL: TRẤN THÀNH TÁT NAM THƯ RỒI KHÓC
 

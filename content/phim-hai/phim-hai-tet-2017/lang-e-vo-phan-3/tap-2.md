@@ -7,4 +7,5 @@ layout: Post
 series: lang-e-vo
 date: 2016-12-29
 youtubeId: Wa7xXrs5ET4
+route: /phim-hai/phim-hai-tet-2017-lang-e-vo-e-phan-3-tap-2
 ---

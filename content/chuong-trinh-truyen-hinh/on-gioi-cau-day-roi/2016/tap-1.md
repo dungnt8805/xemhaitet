@@ -6,6 +6,7 @@ actors: [hoai-linh, tran-thanh, truong-giang, xuan-bac, tu-long, hong-dao]
 date: 2016-03-28
 type: Video
 layout: Post
+route: /chuong-trinh-truyen-hinh/on-gioi-cau-day-roi-2016-tap-1
 ---
 ƠN GIỜI CẬU ĐÂY RỒI 2016 | TẬP 1: HỨA VĨ VĂN - VÕ HẠ TRÂM - KIỀU MAI LÝ - HOÀNG MÈO
 

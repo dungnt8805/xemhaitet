@@ -6,6 +6,7 @@ actors: [hoai-linh, tran-thanh, truong-giang, chi-tai, viet-huong, xuan-bac, tu-
 date: 2016-03-28
 type: Video
 layout: Post
+route: /chuong-trinh-truyen-hinh/on-gioi-cau-day-roi-2015-tap-7
 ---
 ƠN GIỜI CẬU ĐÂY RỒI! - 2015 - TẬP 7 - FULL HD
 

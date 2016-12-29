@@ -6,6 +6,7 @@ actors: [hoai-linh, tran-thanh, truong-giang, xuan-bac, tu-long, hong-dao]
 date: 2016-03-28
 type: Video
 layout: Post
+route: /chuong-trinh-truyen-hinh/on-gioi-cau-day-roi-2016-tap-4
 ---
 ƠN GIỜI CẬU ĐÂY RỒI 2016 | TẬP 4 FULL HD: MAI SƠN, MAI HỒ, TRÚC NHÂN, YA YA TRƯƠNG NHI
 
