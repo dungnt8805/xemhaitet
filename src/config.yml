@@ -11,8 +11,8 @@ theme_settings:
   header_text: "Couponmuasam"
   header_text_feature_image:
   banner:
-    link: http://click.accesstrade.vn/adv.php?rk=0001tj000dds
-    image: http://imp.accesstrade.vn/img.php?rk=0001tj000dds
+    link: https://click.accesstrade.vn/adv.php?rk=0001tj000dds
+    image: https://imp.accesstrade.vn/img.php?rk=0001tj000dds
   footer_text: >
    Powered by <a href="https://phenomic.io">Phenomic.io</a> with Type Theme
   # Icons
