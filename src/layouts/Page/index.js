@@ -40,7 +40,7 @@ const Page = ({
     { name: "twitter:title", content: metaTitle },
     { name: "twitter:creator", content: `@${ pkg.twitter }` },
     { name: "twitter:description", content: head.description },
-    { name: "description", content: head.description },
+    { name: "description", content: head.description || head.title },
     { property: "og:image", content: metaImage },
   ]
   let page = 1;
@@ -78,8 +78,8 @@ const Page = ({
     const series = enhanceCollection(collection, {
       filter: (post) => (
         post.type === "Video"
-        && (head.series && post.hasOwnProperty("series")
-        && head.series === post.series)
+         && (head.hasOwnProperty("series") && head.series.length > 0 && post.hasOwnProperty("series")
+         && head.series === post.series)
       ),
       sort: "title",
     })
