@@ -15,6 +15,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { name: "twitter:site", content: `@${ pkg.twitter }` },
         { name: "ROBOTS", content: "noindex" },
         { name: "google-site-verification", content: "ISeO_0rnNXeSwn5ux4ISyBRPARLxtznOso-GQxC9nrs" },
+        { name: "X-UA-Compatible", content: "IE=edge" },
       ] }
       script={ [
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js", type: "text/javascript" },

@@ -47,6 +47,9 @@ const Page = ({
     { name: "description", content: head.description || head.title },
     { property: "og:image", content: metaImage },
   ]
+  const link = [
+    { rel: "canonical", href: url },
+  ]
   let page = 1;
   if ("undefined" !== typeof window) {
     page = getQueryString(window.location.search).page
@@ -109,7 +112,7 @@ const Page = ({
   const pages = Math.ceil(total / limitPerPage)
   return (
     <div>
-      <Helmet title={ metaTitle } meta={ meta }/>
+      <Helmet title={ metaTitle } meta={ meta } link={ link }/>
       {
         ("Video" === head.type && <VideoPage url={ url } head={ head } body={ body }/>)
         || ("Category" === head.type && <CategoryPage head={ head } body={ body }/>)
