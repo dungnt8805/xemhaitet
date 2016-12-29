@@ -5,8 +5,9 @@ import { BodyContainer, joinUri } from "phenomic"
 import CategoryPage from "./category"
 import VideoPage from "./video"
 import enhanceCollection from "phenomic/lib/enhance-collection"
-import { getQueryString } from "../../utils"
+import { getQueryString, compareArrays } from "../../utils"
 import Videos from "../../components/Videos"
+import _ from "lodash"
 
 const Page = ({
   __filename,
@@ -51,9 +52,6 @@ const Page = ({
   const startIndex = limitPerPage * (page - 1)
   const endIndex = startIndex + limitPerPage;
   let filter;
-  if ("Video" === head.type) {
-    filter = { type: "Video" }
-  }
 
   if ("Category" === head.type) {
     filter = (post) => (
@@ -62,7 +60,6 @@ const Page = ({
       && post.categories.indexOf(head.slug) > -1
     )
   }
-
   if ("Actor" === head.type) {
     filter = (post) => (
       post.type === "Video"
@@ -70,11 +67,41 @@ const Page = ({
       && post.actors.indexOf(head.slug) > -1
     )
   }
-  const allVideos = enhanceCollection(collection, {
-    filter: filter, sort: "date", reverse: true,
+  const aVideos = enhanceCollection(collection, {
+    filter: filter || { type: "Video" }, sort: "date", reverse: true,
   })
 
-  const total = allVideos.length;
+  console.log(aVideos)
+  let allVideos = []
+
+  if ("Video" === head.type) {
+    const series = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+        && (head.series && post.hasOwnProperty("series")
+        && head.series === post.series)
+      ),
+      sort: "title",
+    })
+    const sameCategoies = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+        && (head.categories && post.hasOwnProperty("categories") && compareArrays(head.categories, post.categories) > 0)
+      ),
+    })
+    const sameActors = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+        && (head.actors && post.hasOwnProperty("actors") && compareArrays(head.actors, post.actors) > 0)
+      ),
+    })
+    allVideos = _.unionBy(series, sameActors, sameActors, aVideos)
+  }
+  else {
+    allVideos = aVideos;
+  }
+  const total = allVideos.length
+
   const relatedVideos = allVideos.slice(startIndex, endIndex)
   const pages = total / limitPerPage
   return (

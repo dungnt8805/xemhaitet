@@ -12,4 +12,15 @@ function getQueryString(queryString) {
   return ret;
 }
 
+function compareArrays(source, dist) {
+  let score = 0;
+  for (let i = 0; i < source.length; i++) {
+    if (dist.indexOf(source[i]) !== -1) {
+      score++;
+    }
+  }
+  return score;
+}
+
 export { getQueryString }
+export { compareArrays }

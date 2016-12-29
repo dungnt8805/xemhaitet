@@ -4,4 +4,5 @@ layout: Post
 youtubeId: 8ML3-acbCRA
 date: 2016-10-12
 type: Video
+categories: [phim-hai]
 ---
