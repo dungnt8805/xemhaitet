@@ -6,5 +6,6 @@ youtubeId: p-sNhQaoL2M
 type: Video
 categories: [phim-hai]
 actors: [cong-ly]
+route: /phim-hai/van-co-vo-4-hai-tet-2017-cong-ly
 ---
 Ván cờ vồ 4 | Hài tết Công Lý 2017
