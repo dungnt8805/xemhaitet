@@ -1,9 +1,9 @@
 import React, { PropTypes } from "react"
 import Link from "phenomic/lib/Link"
 
-const Paginator = ({ current, total, uri }) => {
+const Paginator = ({ current, pages, uri }) => {
   const rows = [];
-  for (let i = 1; i <= total; i++) {
+  for (let i = 1; i <= pages; i++) {
     rows.push(i);
   }
   return (
@@ -11,7 +11,7 @@ const Paginator = ({ current, total, uri }) => {
       {
         rows.map((row) => (
           <li key={ row }>
-            <Link to={ "/" + uri + "page=" + row }>{ row }</Link>
+            <Link to={ uri + "?page=" + row }>{ row }</Link>
           </li>
         ))
       }
@@ -21,7 +21,7 @@ const Paginator = ({ current, total, uri }) => {
 
 Paginator.propTypes = {
   current: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
+  pages: PropTypes.number.isRequired,
   uri: PropTypes.string.isRequired,
 }
 

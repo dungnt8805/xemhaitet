@@ -8,6 +8,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import { getQueryString, compareArrays } from "../../utils"
 import Videos from "../../components/Videos"
 import _ from "lodash"
+import Paginator from "../../components/Paginator"
 
 const Page = ({
   __filename,
@@ -48,7 +49,7 @@ const Page = ({
     page = getQueryString(window.location.search).page
   }
   page = page > 0 ? page : 1;
-  const limitPerPage = "Video" === head.type ? 15 : 30
+  const limitPerPage = "Video" === head.type ? 15 : 12
   const startIndex = limitPerPage * (page - 1)
   const endIndex = startIndex + limitPerPage;
   let filter;
@@ -104,6 +105,7 @@ const Page = ({
 
   const relatedVideos = allVideos.slice(startIndex, endIndex)
   const pages = total / limitPerPage
+  console.log(pages);
   return (
     <div>
       <Helmet title={ metaTitle } meta={ meta }/>
@@ -112,7 +114,10 @@ const Page = ({
         || ("Category" === head.type && <CategoryPage head={ head } body={ body }/>)
       }
       <Videos videos={ relatedVideos }/>
-
+      {
+        "Video" !== head.type && pages > 1 &&
+          <Paginator current={ page } pages={ pages } uri={ __url }/>
+      }
     </div>
   )
 }
