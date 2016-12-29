@@ -52,7 +52,7 @@ const Page = ({
     page = getQueryString(window.location.search).page
   }
   page = page > 0 ? page : 1;
-  const limitPerPage = "Video" === head.type ? 15 : 12
+  const limitPerPage = "Video" === head.type ? 15 : 30
   const startIndex = limitPerPage * (page - 1)
   const endIndex = startIndex + limitPerPage;
   let filter;
