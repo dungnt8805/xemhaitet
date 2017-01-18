@@ -19,12 +19,8 @@ class GoogleAnalyticsTracker extends React.PureComponent {
   componentWillMount() {
     if (isClient) {
       const { pkg } = this.context.metadata
-      if (isProduction) {
-        ga("create", pkg.googleAnalyticsUA, "auto")
-      }
-      else {
-        console.info("ga.create", pkg.googleAnalyticsUA)
-      }
+      ga("create", pkg.googleAnalyticsUA, "auto")
+
       this.logPageView()
     }
   }
