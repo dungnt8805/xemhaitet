@@ -92,7 +92,7 @@ const Header = (props, { metadata: { pkg }, collection }) => {
           <div className="site-branding col-md-4">
             <div id="logo">
               <Link to="/" rel="home">
-                <img src={ site.theme_settings.logo } alt={ site.theme_settings.title }/>
+                <img src={ site.theme_settings.logo } alt={ site.theme_settings.title } style={ { width: "145px" } }/>
               </Link>
             </div>
           </div>

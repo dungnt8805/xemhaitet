@@ -1,6 +1,6 @@
 ---
 title: NSƯT Hoài Linh - Họp Báo Liveshow Đời Bạc Lắm, Kệ, Cười Trước Đã
-youtubeId: AOD1VzshzIU
+youtubeId: EzmBsqhpqnY
 categories: [live-show]
 actors: [hoai-linh]
 date: 2016-03-28

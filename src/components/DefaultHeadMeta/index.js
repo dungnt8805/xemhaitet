@@ -24,6 +24,9 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
         { src: "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8" },
       ] }
+      link={ [
+        { href: "/images/favicon/favicon.ico", rel:"shortcut icon", type: "image/x-icon" },
+      ] }
     />
 
     { /* meta viewport safari/chrome/edge */ }

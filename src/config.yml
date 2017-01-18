@@ -3,7 +3,7 @@ theme_settings:
   # Meta
   title: Xemhaitet
   avatar:
-  logo: images/small-9162-5806f71506916.png
+  logo: /images/logo.png
   gravatar: a8915a67cbc1917c7a1404a1889c701c
   description: "Web development, React.js, Redux.js, Webpack và các vấn đề liên quan"
 
