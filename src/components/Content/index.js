@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react"
-import MailChimp from "../../widgets/MailChimp"
+import Fanpage from "../Facebook/Fanpage"
 
 const Content = (props) => {
   return (
@@ -13,7 +13,7 @@ const Content = (props) => {
             <div className="sidebar col-md-4 hidden-small">
               <div id="sidebar" className="g">
                 <div className="sidebar">
-                  <MailChimp />
+                  <Fanpage />
                 </div>
               </div>
             </div>

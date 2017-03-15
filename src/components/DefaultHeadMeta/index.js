@@ -10,7 +10,12 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
           process.env.PHENOMIC_NAME } ${ process.env.PHENOMIC_VERSION }`,
         },
         { property: "og:site_name", content: pkg.name },
+        { property: "fb:app_id", content: "1625144991086588" },
+        { property: "fb:admins", content: "730276762" },
         { name: "twitter:site", content: `@${ pkg.twitter }` },
+        { name: "ROBOTS", content: "noindex" },
+        { name: "google-site-verification", content: "ISeO_0rnNXeSwn5ux4ISyBRPARLxtznOso-GQxC9nrs" },
+        { name: "X-UA-Compatible", content: "IE=edge" },
       ] }
       script={ [
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js", type: "text/javascript" },
@@ -18,6 +23,9 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", type: "text/javascript" },
         { src: "https://content.jwplatform.com/libraries/tSX7kjta.js" },
         { src: "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8" },
+      ] }
+      link={ [
+        { href: "/images/favicon/favicon.ico", rel:"shortcut icon", type: "image/x-icon" },
       ] }
     />
 

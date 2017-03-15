@@ -8,7 +8,7 @@ const Videos = ({ videos }) => {
       <div className="grid">
         {
           videos.map((video) => (
-            <Video video={ video } key={ video.__url }/>
+            <Video video={ video } key={ video.youtubeId }/>
           ))
         }
       </div>

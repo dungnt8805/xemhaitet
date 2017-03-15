@@ -2,9 +2,13 @@ import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
-import ReactPlayer from "react-player"
-import FBComments from "../../components/Facebook/FBComments"
-import FBLike from "../../components/Facebook/FBLike"
+import CategoryPage from "./category"
+import VideoPage from "./video"
+import enhanceCollection from "phenomic/lib/enhance-collection"
+import { getQueryString, compareArrays } from "../../utils"
+import Videos from "../../components/Videos"
+import _ from "lodash"
+import Paginator from "../../components/Paginator"
 
 const Page = ({
   __filename,
@@ -22,55 +26,102 @@ const Page = ({
     typeof head.title === "string",
     `Your page '${ __filename }' needs a title`
   )
-
-  const metaTitle = head.metaTitle ? head.metaTitle : head.title
+  const url = joinUri(process.env.PHENOMIC_USER_URL, __url)
+  const metaTitle = `${head.metaTitle ? head.metaTitle : head.title} :: ${pkg.name}`
+  let metaImage = "";
+  if (head.type === "Video") {
+    metaImage = `https://img.youtube.com/vi/${head.youtubeId}/hqdefault.jpg`
+  }
+  if (head.type === "Category") {
+    metaImage = head.thumbnail
+  }
   const meta = [
-    { property: "og:type", content: "article" },
+    { property: "og:type", content: "video.movie" },
     { property: "og:title", content: metaTitle },
-    {
-      property: "og:url",
-      content: joinUri(process.env.PHENOMIC_USER_URL, __url),
-    },
+    { property: "og:url", content: url },
     { property: "og:description", content: head.description },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:title", content: metaTitle },
     { name: "twitter:creator", content: `@${ pkg.twitter }` },
     { name: "twitter:description", content: head.description },
-    { name: "description", content: head.description },
+    { name: "description", content: head.description || head.title },
+    { property: "og:image", content: metaImage },
   ]
-  const url = joinUri(process.env.PHENOMIC_USER_URL, __url);
+  const link = [
+    { rel: "canonical", href: url },
+  ]
+  let page = 1;
+  if ("undefined" !== typeof window) {
+    page = getQueryString(window.location.search).page
+  }
+  page = page > 0 ? page : 1;
+  const limitPerPage = "Video" === head.type ? 15 : 30
+  const startIndex = limitPerPage * (page - 1)
+  const endIndex = startIndex + limitPerPage;
+  let filter;
+
+  if ("Category" === head.type) {
+    filter = (post) => (
+      post.type === "Video"
+      && post.hasOwnProperty("categories")
+      && post.categories.indexOf(head.slug) > -1
+    )
+  }
+  if ("Actor" === head.type) {
+    filter = (post) => (
+      post.type === "Video"
+      && post.hasOwnProperty("actors")
+      && post.actors.indexOf(head.slug) > -1
+    )
+  }
+  const aVideos = enhanceCollection(collection, {
+    filter: filter || { type: "Video" }, sort: "date", reverse: true,
+  })
+
+  let allVideos = []
+
+  if ("Video" === head.type) {
+    const series = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+         && (head.hasOwnProperty("series") && head.series.length > 0 && post.hasOwnProperty("series")
+         && head.series === post.series)
+      ),
+      sort: "title",
+    })
+    const sameCategoies = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+        && (head.categories && post.hasOwnProperty("categories") && compareArrays(head.categories, post.categories) > 0)
+      ),
+    })
+    const sameActors = enhanceCollection(collection, {
+      filter: (post) => (
+        post.type === "Video"
+        && (head.actors && post.hasOwnProperty("actors") && compareArrays(head.actors, post.actors) > 0)
+      ),
+    })
+    allVideos = _.unionBy(series, sameActors, sameActors, aVideos)
+  }
+  else {
+    allVideos = aVideos;
+  }
+  const total = allVideos.length
+
+  const relatedVideos = allVideos.slice(startIndex, endIndex)
+  const pages = Math.ceil(total / limitPerPage)
   return (
     <div>
-      <article className="hentry" id={ __url }>
-        <Helmet title={ metaTitle } meta={ meta }/>
-        <div id="video-player" className="col-xs-12">
-          <ReactPlayer url={ "https://www.youtube.com/watch?v=" + head.youtubeId } width="100%"/>
-        </div>
-        <div className="info col-xs-12">
-          <h1 className="entry-title">
-            { head.title }
-            <span className="entry-date">
-              <i className="fa fa-clock-o"></i>&nbsp;
-              { new Date(head.date).toLocaleDateString("vi-vn", { year: "numeric", month: "numeric", day: "numeric" }) }
-          </span>
-          </h1>
-        </div>
-        <FBLike link={ url } />
-
-        <div className="entry-content">
-          <BodyContainer>{ body }</BodyContainer>
-        </div>
-        <div className="comment">
-          <FBComments link={ url }/>
-          <div id="disqus_thread"></div>
-          <script>
-
-          </script>
-        </div>
-      </article>
-      <div className="comment-area" id="comments">
-        <div id="disqus_thread"></div>
-      </div>
+      <Helmet title={ metaTitle } meta={ meta } link={ link }/>
+      {
+        ("Video" === head.type && <VideoPage url={ url } head={ head } body={ body }/>)
+        || ("Category" === head.type && <CategoryPage head={ head } body={ body }/>)
+      }
+      <Videos videos={ relatedVideos }/>
+      {
+        "Video" !== head.type && pages > 1 &&
+          <Paginator current={ page } pages={ pages } uri={ __url }/>
+      }
     </div>
   )
 }
