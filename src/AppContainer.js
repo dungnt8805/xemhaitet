@@ -11,21 +11,20 @@ import Ga from "./components/Ga"
 
 const AppContainer = (props) => {
   return (
-    <Ga params={ props.params }>
-      <Container>
-        <DefaultHeadMeta />
-        <Header />
-        <Content>
-          { props.children }
-        </Content>
-      </Container>
+    <Container>
+      <DefaultHeadMeta />
+      <Header />
+      <Content>
+        { props.children }
+      </Content>
       <Footer />
-    </Ga>
+      <Ga params={ props.params }> </Ga>
+    </Container>
   )
 }
 
 AppContainer.propTypes = {
-  children: PropTypes.oneOfType([ PropTypes.array, PropTypes.object ]),
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   params: PropTypes.object,
 }
 
